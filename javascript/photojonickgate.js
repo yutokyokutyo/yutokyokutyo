@@ -1,3 +1,5 @@
+準備完了
+
 cd ~
 mkdir tadaima
 cd tadaima
