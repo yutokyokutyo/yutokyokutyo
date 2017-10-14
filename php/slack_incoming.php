@@ -1,9 +1,10 @@
 <?php
-$webhook_url = 'https://hooks.slack.com/services/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';
+$webhook_url = '';
 
 $msg = array(
     'username' => 'チッコー',
-    'text' => 'ちこぉ'
+    //'text' => 'https://iwiz-chie.c.yimg.jp/im_sigg78iJz.eFs4ERJwjGEimaAw---x320-y320-exp5m-n1/d/iwiz-chie/que-11112050981'
+    'text' => 'P'
 );
 $msg = json_encode($msg);
 $msg = 'payload=' . urlencode($msg);
