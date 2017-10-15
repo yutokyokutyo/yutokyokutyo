@@ -1,7 +1,7 @@
 <?php
 require_once 'arithmetic.php';
 
-class ArithmeticTest extends PHPUnit_Framework_TestCase {
+class ArithmeticTest extends PHPUnit\Framework\TestCase {
 
     protected $object;
 
