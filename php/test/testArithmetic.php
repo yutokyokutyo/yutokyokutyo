@@ -16,4 +16,12 @@ class ArithmeticTest extends PHPUnit\Framework\TestCase {
     public function testSubtract() {
         $this->assertEquals(7, $this->object->subtract(10, 3));
     }
+
+    public function testMultiply() {
+        $this->assertEquals(24, $this->object->subtract(8, 3));
+    }
+
+    public function testDivide() {
+        $this->assertEquals(6, $this->object->subtract(6, 2));
+    }
 }
