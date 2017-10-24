@@ -24,7 +24,11 @@ $(function() {
     }
 
     // sessionの情報を取得してボタンを押したらhiddenが表示される
-    $('.next').on('click', function () {
+    $('.heal').on('click', function () {
+        $(".heal").attr('type', 'hidden');
+        $(".break").attr('type', 'button');
         setApi('');
     });
+
+    getApi(step);
 })
