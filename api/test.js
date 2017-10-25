@@ -27,8 +27,5 @@ $(function() {
     $('.heal').on('click', function () {
         $(".heal").attr('type', 'hidden');
         $(".break").attr('type', 'button');
-        setApi('');
     });
-
-    getApi(step);
-})
+});
