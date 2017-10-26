@@ -2,4 +2,4 @@
 
 session_start();
 
-$_SESSION['test']['$_POST['test']'] = true;
+$_SESSION['bone']['status'] = $_POST['status'];

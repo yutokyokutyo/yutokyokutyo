@@ -1,24 +1,24 @@
 $(function() {
     'use strict';
 
-    function setApi(step) {
+    function setApi(status) {
         $.ajax({
-            url: '/api/tutorial',
+            url: 'api.php',
             method: 'post',
             dataType: 'text',
-            data: {
-                'step': step
+            data:
+                'status': status
             }
         });
     }
 
-    function getApi(step) {
+    function getApi(status) {
         $.ajax({
-            url: '/api/tutorial',
+            url: 'api.php',
             method: 'get',
             dataType: 'text',
             data: {
-                'step': step
+                'status': status
             }
         });
     }
@@ -27,5 +27,8 @@ $(function() {
     $('.heal').on('click', function () {
         $(".heal").attr('type', 'hidden');
         $(".break").attr('type', 'button');
+        setApi('1');
     });
+
+    getApi(status);
 });
