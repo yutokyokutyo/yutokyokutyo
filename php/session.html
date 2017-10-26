@@ -1,0 +1,33 @@
+<?php
+session_strat();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<body>
+
+<?php
+// セッションにデータを格納
+$_SESSION['sdata1'] = "hello";
+$_SESSION['sdata2'] = "world";
+
+// $_SESSIONのデータを出力
+print_r($_SESSION); echo "<br /";
+
+// $_SESSIONのデータを削除
+setcookie( session_name(), '', time()-60);
+
+// セッションを破棄
+$flg = session_destroy();
+
+if ($flg == true) {
+  echo "セッションを破棄しました";
+} else {
+  echo "セッションの破棄に失敗しました";
+}
+?>
+
+</body>
+</html>
