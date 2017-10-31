@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <title>My ToDos</title>
+    <meta charset="utf-8">
+    <title>My ToDos</title>
+    <style>
+    body { font-size: 13px; font-family: Arial; }
+    h1 { font-size: 14px; border-bottom: 1px solid #ddd; padding: 0 0 5px; } 
+    ul { list-style-type: none; padding: 0; margin: 0 0 5px; }
+    ul > li { padding: 0 0 5px; }
+    input[type=text] { padding: 4px; border-radius: 4px; }
+    .done { text-decoration: line-through; color: #aaa; }
+    </style>
 </head>
 <body>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.4/vue.min.js"></script>
-  <script>
-  </script>
+    <div id="myapp">
+        <h1>
+            My ToDos
+        </h1>
+        <ul>
+            <li v-repeat="todos">
+                <input type="checkbox" v-attr="checked: done" v-on="click: done = !done">
+                <span v-class="done: done">{{task}}</span>
+            </li>
+        </ul>
+        <input type="text" placeholder="new task...">
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.4/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#myapp',
+            data: {
+                todos: [
+                    {task: 'task 1', done: false},
+                    {task: 'task 2', done: true},
+                    {task: 'task 3', done: false}
+                ]
+            }
+        });
+    </script>
 </body>
 </html>
