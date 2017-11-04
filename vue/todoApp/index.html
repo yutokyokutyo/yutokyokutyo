@@ -18,7 +18,10 @@
     <h1>
         My ToDos
     </h1>
+    <h2>
+        <small>残タスク({{remaining}}/{{todos.length}})</small>
     <span class="linkLike" v-on="click:purge">[purge]</span>
+    </h2>
     <ul>
         <li v-repeat="todos">
             <input type="checkbox" v-attr="checked: done" v-on="click: done = !done">
@@ -39,6 +42,17 @@
                 {task: 'task 2', done: true},
                 {task: 'task 3', done: false}
             ]
+        },
+        computed: {
+            remaining: function() {
+                var count = 0;
+                for (var i = 0, j = this.todos.length; i < j; i++) {
+                    if (!this.todos[i].done) {
+                        count++;
+                    }
+                }
+                return count;
+            }
         },
         methods: {
             add: function() {
