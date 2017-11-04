@@ -10,6 +10,7 @@
         ul > li { padding: 0 0 5px; }
         input[type=text] { padding: 4px; border-radius: 4px; }
         .done { text-decoration: line-through; color: #aaa; }
+        .linkLike { color: blue; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -21,6 +22,7 @@
         <li v-repeat="todos">
             <input type="checkbox" v-attr="checked: done" v-on="click: done = !done">
             <span v-class="done: done">{{task}}</span>
+            <span class="linkLike" v-on="click:del($index)">[x]</span>
         </li>
     </ul>
     <input type="text" v-model="newTask" placeholder="new task..." v-on="keyup:add | key enter">
@@ -44,6 +46,10 @@
                     done: false
                 });
                 this.newTask = ''
+            },
+            del: function(index) {
+                if (confirm("削除しても大丈夫？")) {
+                this.todos.splice(index, 1)};
             }
         }
     });
