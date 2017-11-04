@@ -19,7 +19,7 @@
         My ToDos
     </h1>
     <h2>
-        <small>残タスク({{remaining}}/{{todos.length}})</small>
+        <small>残タスク({{remaining()}}/{{todos.length}})</small>
     <span class="linkLike" v-on="click:purge">[purge]</span>
     </h2>
     <ul>
@@ -43,17 +43,6 @@
                 {task: 'task 3', done: false}
             ]
         },
-        computed: {
-            remaining: function() {
-                var count = 0;
-                for (var i = 0, j = this.todos.length; i < j; i++) {
-                    if (!this.todos[i].done) {
-                        count++;
-                    }
-                }
-                return count;
-            }
-        },
         methods: {
             add: function() {
                 this.todos.push({
@@ -73,6 +62,15 @@
                         this.todos.splice(i, 1);
                     }
                 }
+            },
+            remaining: function() {
+                var count = 0;
+                for (var i = 0, j = this.todos.length; i < j; i++) {
+                    if (!this.todos[i].done) {
+                        count++;
+                    }
+                }
+                return count;
             }
         }
     });
