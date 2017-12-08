@@ -1,0 +1,14 @@
+var MyComponent =  Vue.extend({
+  template: '<div>Hello!</div>'
+})
+
+new MyComponent().$var MyComponent = Vue.extend({
+  template: '<div>Hello!</div>'
+})
+// インスタンスを生成し、#app にマウント(#app を置換)
+new MyComponent().$mount('#app')
+// 上記と同じです:
+new MyComponent({ el: '#app' })
+// また、ドキュメント外で描画し、その後加える
+var component = new MyComponent().$mount()
+document.getElementById('app').appendChild(component.$el)
