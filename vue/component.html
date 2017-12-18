@@ -6,28 +6,16 @@
 </head>
 <body>
 
-<div id="example">
-    <my-component></my-component>
+<div id="parent">
+    <user-profile ref="profile"></user-profile>
 </div>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.4/vue.min.js"></script>
 <script>
-    // 登録する
-//    Vue.component('my-component', {
-//        template: '<div>A custom component!</div>'
-//    })
-
-    var Child = {
-        template: '<div>A cutom componene!</div>'
-    }
-
-    // root インスタンスを生成
-    new Vue({
-        el: '#example'
-        components: {
-            'my-component': Child
-        }
-    })
+    var parent = new Vue({ el: '#parent' })
+    // 子コンポーネントのインスタンスへのアクセス
+    var child = parent.$refs.profile
+    cosole.log(child);
 </script>
 </body>
 </html>
