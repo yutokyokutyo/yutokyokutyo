@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>My Vue.js Practice</title>
+</head>
+<body>
+
+<child my-message='hello!'></child>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.4/vue.min.js"></script>
+<script>
+Vue.component('child', {
+    props: ['myMessage'],
+    template: '<sapn>{{ myMessage }}</sapn>'
+})
+</script>
+</body>
+</html>
