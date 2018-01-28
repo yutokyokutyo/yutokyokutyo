@@ -9,7 +9,7 @@ import RPi.GPIO as GPIO
 import pygame.mixer
 
 INTAVAL = 1
-SLEEPTIME = 5
+SLEEPTIME = 10
 SENSOR_PIN = 18
 
 GPIO.cleanup()
