@@ -21,6 +21,7 @@ GPIO.setup(SENSOR_PIN, GPIO.IN)
 while True:
   print GPIO.input(SENSOR_PIN)
   if(GPIO.input(SENSOR_PIN) == GPIO.HIGH):
+    # TODO: 一度検知したら1分間は検知しないようにする
     print("人を検知しました！")
     pygame.mixer.init()
     pygame.mixer.music.load("snowboy.wav")
