@@ -28,7 +28,7 @@ def ConvertVolts(data,places):
 # センサのチャンネルの宣言
 force_channel = 0
 # 値を読むのを遅らせる
-delay = 5
+delay = 7
 
 # メインクラス
 if __name__ == '__main__':
