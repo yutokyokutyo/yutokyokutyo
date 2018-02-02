@@ -5,6 +5,7 @@ import spidev
 import time
 import os
 import pygame.mixer
+import random
 
 # SPIバスを開く
 spi = spidev.SpiDev()
@@ -43,8 +44,9 @@ if __name__ == '__main__':
         print("入浴なう！")
         # 音楽再生
         pygame.mixer.init()
-        # TODO: できれば音楽は複数個をランダムに再生したい
-        pygame.mixer.music.load("snowboy.wav")
+        number = random.randint(1,10)
+        voice_music =  "{0}{1}{2}".format('duck_voice', number, '.m4a')
+        pygame.mixer.music.load(voice_music)
         pygame.mixer.music.play(1)
         # TODO: 0.5秒毎に検知するセンサーに引っかかり音楽を再生してしまう
         # 500 以上にならない限り音楽を再生しないようにする
@@ -54,7 +56,7 @@ if __name__ == '__main__':
         print("退出！！")
 
       time.sleep(delay)
- # 何か入力したら終了
+  # 何か入力したら終了
   except KeyboardInterrupt:
-   spi.close()
-   sys.exit(0)
+    spi.close()
+    sys.exit(0)
