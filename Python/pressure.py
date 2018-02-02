@@ -28,7 +28,7 @@ def ConvertVolts(data,places):
 # センサのチャンネルの宣言
 force_channel = 0
 # 値を読むのを遅らせる
-delay = 0.50
+delay = 5
 
 # メインクラス
 if __name__ == '__main__':
@@ -48,14 +48,12 @@ if __name__ == '__main__':
         voice_music =  "{0}{1}{2}".format('duck_voice', number, '.mp3')
         pygame.mixer.music.load(voice_music)
         pygame.mixer.music.play(1)
-        # TODO: 0.5秒毎に検知するセンサーに引っかかり音楽を再生してしまう
         # 500 以上にならない限り音楽を再生しないようにする
+        time.sleep(delay)
       else:
-        # TODO: 0.5秒毎に検知するセンサーに引っかかり音楽を再生してしまう
         # 0 ~ 500 にならない限り音楽を再生しないようにする
         print("退出！！")
-
-      time.sleep(delay)
+        time.sleep(delay)
   # 何か入力したら終了
   except KeyboardInterrupt:
     spi.close()
