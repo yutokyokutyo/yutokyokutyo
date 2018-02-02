@@ -9,7 +9,7 @@ import RPi.GPIO as GPIO
 import pygame.mixer
 
 INTAVAL = 1
-SLEEPTIME = 60
+SLEEPTIME = 10
 SENSOR_PIN = 18
 
 GPIO.cleanup()
@@ -23,9 +23,9 @@ while True:
   if(GPIO.input(SENSOR_PIN) == GPIO.HIGH):
     print("人を検知しました！")
     pygame.mixer.init()
-    pygame.mixer.music.load("duck_voice1.wav")
+    pygame.mixer.music.load("duck_voice1.mp3")
     pygame.mixer.music.play(1)
-    time.sleep(SLEEPTIME)
+    time.sleep(60)
   else:
     print("誰もいないよん！")
 
