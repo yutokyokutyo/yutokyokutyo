@@ -45,7 +45,7 @@ if __name__ == '__main__':
         # 音楽再生
         pygame.mixer.init()
         number = random.randint(1,10)
-        voice_music =  "{0}{1}{2}".format('duck_voice', number, '.m4a')
+        voice_music =  "{0}{1}{2}".format('duck_voice', number, '.wav')
         pygame.mixer.music.load(voice_music)
         pygame.mixer.music.play(1)
         # TODO: 0.5秒毎に検知するセンサーに引っかかり音楽を再生してしまう
