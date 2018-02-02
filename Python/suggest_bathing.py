@@ -7,6 +7,7 @@ import time
 import RPi.GPIO as GPIO
 # 音楽再生
 import pygame.mixer
+import random
 
 INTAVAL = 1
 SLEEPTIME = 10
