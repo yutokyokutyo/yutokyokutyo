@@ -44,7 +44,7 @@ if __name__ == '__main__':
         print("入浴なう！")
         # 音楽再生
         pygame.mixer.init()
-        number = random.randint(1,10)
+        number = random.randint(11,12)
         voice_music =  "{0}{1}{2}".format('duck_voice', number, '.mp3')
         pygame.mixer.music.load(voice_music)
         pygame.mixer.music.play(1)
@@ -52,7 +52,10 @@ if __name__ == '__main__':
         time.sleep(delay)
       else:
         # 0 ~ 500 にならない限り音楽を再生しないようにする
-        print("退出！！")
+        print("お風呂からでたよ")
+        pygame.mixer.init()
+        pygame.mixer.music.load("duck_voice15.mp3")
+        pygame.mixer.music.play(1)
         time.sleep(delay)
   # 何か入力したら終了
   except KeyboardInterrupt:

@@ -23,9 +23,11 @@ while True:
   if(GPIO.input(SENSOR_PIN) == GPIO.HIGH):
     print("人を検知しました！")
     pygame.mixer.init()
-    pygame.mixer.music.load("duck_voice1.mp3")
+    number = random.randint(1,10)
+    voice_music =  "{0}{1}{2}".format('duck_voice', number, '.mp3')
+    pygame.mixer.music.load(voice_music)
     pygame.mixer.music.play(1)
-    time.sleep(60)
+    time.sleep(30)
   else:
     print("誰もいないよん！")
 
