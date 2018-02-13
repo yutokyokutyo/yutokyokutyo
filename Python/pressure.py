@@ -5,6 +5,7 @@ import spidev
 import time
 import os
 import pygame.mixer
+import random
 
 # SPIバスを開く
 spi = spidev.SpiDev()
@@ -27,7 +28,7 @@ def ConvertVolts(data,places):
 # センサのチャンネルの宣言
 force_channel = 0
 # 値を読むのを遅らせる
-delay = 0.50
+delay = 7
 
 # メインクラス
 if __name__ == '__main__':
@@ -43,18 +44,20 @@ if __name__ == '__main__':
         print("入浴なう！")
         # 音楽再生
         pygame.mixer.init()
-        # TODO: できれば音楽は複数個をランダムに再生したい
-        pygame.mixer.music.load("snowboy.wav")
+        number = random.randint(11,12)
+        voice_music =  "{0}{1}{2}".format('duck_voice', number, '.mp3')
+        pygame.mixer.music.load(voice_music)
         pygame.mixer.music.play(1)
-        # TODO: 0.5秒毎に検知するセンサーに引っかかり音楽を再生してしまう
         # 500 以上にならない限り音楽を再生しないようにする
+        time.sleep(delay)
       else:
-        # TODO: 0.5秒毎に検知するセンサーに引っかかり音楽を再生してしまう
         # 0 ~ 500 にならない限り音楽を再生しないようにする
-        print("退出！！")
-
-      time.sleep(delay)
- # 何か入力したら終了
+        print("お風呂からでたよ")
+        pygame.mixer.init()
+        pygame.mixer.music.load("duck_voice15.mp3")
+        pygame.mixer.music.play(1)
+        time.sleep(delay)
+  # 何か入力したら終了
   except KeyboardInterrupt:
-   spi.close()
-   sys.exit(0)
+    spi.close()
+    sys.exit(0)
